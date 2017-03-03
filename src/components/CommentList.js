@@ -10,7 +10,7 @@ class CommentList extends Component {
     render() {
         const {comments=[]} = this.props
         const commentComponents = this.state.isOpen
-            ? comments.map(comment => <li key={comment.id}>{comment.text}</li>)
+            ? comments.map(comment => <li key={comment.id}><p>{comment.text}</p><p><strong>{comment.user}</strong></p></li>)
             : null
 
         return (
