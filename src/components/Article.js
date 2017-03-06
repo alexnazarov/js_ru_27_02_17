@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import CommentList from './CommentList'
+import CommentsHolder from './CommentsHolder'
 
 class Article extends Component {
     constructor() {
@@ -16,7 +16,7 @@ class Article extends Component {
         const body = isOpen
             ? <div>
                 <section>{article.text}</section>
-                <CommentList comments={comments} />
+                <CommentsHolder comments={comments} />
             </div>
             : null
 
