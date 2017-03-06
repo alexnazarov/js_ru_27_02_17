@@ -9,6 +9,7 @@ class CommentList extends Component {
     }
     render() {
         const {comments=[]} = this.props
+        //В идеале отображение коммента тоже сразу в компонент вынести
         const commentComponents = this.state.isOpen
             ? comments.map(comment => <li key={comment.id}><p>{comment.text}</p><p><strong>{comment.user}</strong></p></li>)
             : null
