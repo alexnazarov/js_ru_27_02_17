@@ -23,7 +23,7 @@ class ArticleList extends Component {
 
 ArticleList.propTypes = {
     articles: PropTypes.array.isRequired,
-    openArticleId: PropTypes.number.isRequired,
+    openArticleId: PropTypes.string,
     toggleOpenArticle: PropTypes.func.isRequired
 }
 
