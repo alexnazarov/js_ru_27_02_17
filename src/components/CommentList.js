@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Comment from './Comment'
 import toggleOpen from '../decorators/toggleOpen'
 
@@ -7,34 +7,14 @@ class CommentList extends Component {
         comments: []
     }
 
-    componentWillMount() {
-        console.log('---', 'mounting comment list')
-    }
-
-    componentDidMount() {
-        console.log('---', 'comment list mounted')
-    }
-
-    componentDidUpdate() {
-        this.size = this.container.getBoundingClientRect()
-    }
-
     render() {
         const {isOpen, toggleOpen} = this.props
-        console.log('---', this.size)
         return (
-            <div ref={this.getContainerRef}>
+            <div>
                 <a href="#" onClick={toggleOpen}>{isOpen ? 'hide' : 'show'} comments</a>
                 {this.getBody()}
             </div>
         )
-    }
-
-    getContainerRef = (ref) => {
-        this.container = ref
-        if (ref) {
-            this.size = ref.getBoundingClientRect()
-        }
     }
 
     getBody() {
@@ -58,6 +38,12 @@ class CommentList extends Component {
             </div>
         )
     }
+}
+
+CommentList.propTypes = {
+    comments: PropTypes.array.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    toggleOpen: PropTypes.func.isRequired
 }
 
 export default toggleOpen(CommentList)
