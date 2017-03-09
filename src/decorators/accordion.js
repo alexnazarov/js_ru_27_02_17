@@ -2,6 +2,7 @@ import React from 'react'
 
 export default (CustomComponent) => class DecoratedAccordion extends React.Component {
     state = {
+        //Не привязывайся к названиям сущностей, вся суть декораторов в универсальности. Сделай openItemId
         openArticleId: null
     }
 
