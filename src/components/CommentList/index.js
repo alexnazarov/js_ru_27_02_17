@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
-import Comment from './Comment'
-import toggleOpen from '../decorators/toggleOpen'
+import Comment from '../Comment/index'
+import toggleOpen from '../../decorators/toggleOpen'
+import AddComment from '../AddComment/index'
 
 class CommentList extends Component {
-
     static propTypes = {
         comments: PropTypes.array
     }
@@ -18,11 +18,11 @@ class CommentList extends Component {
 
     render() {
         const {isOpen, toggleOpen} = this.props
-//        console.log('---', this.size)
         return (
             <div ref={this.getContainerRef}>
                 <a href="#" onClick={toggleOpen}>{isOpen ? 'hide' : 'show'} comments</a>
                 {this.getBody()}
+                <AddComment />
             </div>
         )
     }

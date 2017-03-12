@@ -1,0 +1,16 @@
+.add-comment-form {
+    padding: 20px 0 0;
+    max-width: 400px;
+}
+label {
+    display: block;
+    margin: 0 0 5px
+}
+.form-row {
+    padding: 0 0 20px;
+}
+
+input,
+textarea {
+    width: 100%;
+}
