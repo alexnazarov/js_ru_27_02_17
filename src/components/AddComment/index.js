@@ -39,6 +39,7 @@ class AddComment extends Component {
         );
     }
 
+    //хорошо, только название не удачное
     validate = data => ev =>  {
         const { field, max } = data;
         const text = ev.target.value;
