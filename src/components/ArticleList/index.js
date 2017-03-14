@@ -7,7 +7,13 @@ import './style.css'
 
 class ArticleList extends Component {
     render() {
-        const {articles, toggleOpenItem, isItemOpened} = this.props
+        const {articles, toggleOpenItem, isItemOpened, selectedItems} = this.props
+
+        // const filteredArticle = articles.filter(article => {
+        //     if(selectedItems[0]) {
+        //         return article.id !== selectedItems[0].value
+        //     }
+        // });
 
         const articleComponents = articles.map(article => <li key={article.id}>
             <Article article={article}
@@ -31,9 +37,9 @@ class ArticleList extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('---', 'connect, state = ', state)
     return {
-        articles: state.articles
+        articles: state.articles,
+        selectedItems: state.selectedItems
     }
 }
 
