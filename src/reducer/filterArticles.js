@@ -1,6 +1,7 @@
 import {FILTER_ARTICLE} from '../constants'
 
 const filters = {
+    //а здесь лучше просто id хранить, а не все что в Select приходит
     filteredArticles: [],
     date: {
         from: null,
