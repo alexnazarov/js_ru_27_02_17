@@ -1,4 +1,4 @@
-import {INCREMENT, DELETE_ARTICLE, FILTER_BY_TITLE, FILTER_BY_DATE} from '../constants'
+import {INCREMENT, DELETE_ARTICLE, FILTER_ARTICLE} from '../constants'
 
 export function increment() {
     return {
@@ -13,16 +13,9 @@ export function deleteArticle(id) {
     }
 }
 
-export function filterArticlesByTitle(filterArticles) {
+export function filterArticles(data) {
     return {
-        type: FILTER_BY_TITLE,
-        payload: { filterArticles }
-    }
-}
-
-export function filterArticlesByDate(date) {
-    return {
-        type: FILTER_BY_DATE,
-        payload: { date }
+        type: FILTER_ARTICLE,
+        payload: { ...data }
     }
 }

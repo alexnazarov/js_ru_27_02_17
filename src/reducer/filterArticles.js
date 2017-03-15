@@ -1,7 +1,7 @@
-import {FILTER_BY_TITLE, FILTER_BY_DATE} from '../constants'
+import {FILTER_ARTICLE} from '../constants'
 
 const filters = {
-    filterArticles: [],
+    filteredArticles: [],
     date: {
         from: null,
         to: null
@@ -12,8 +12,7 @@ export default (state = filters, action) => {
     const { type, payload } = action
 
     switch (type) {
-        case FILTER_BY_TITLE:
-        case FILTER_BY_DATE:
+        case FILTER_ARTICLE:
             return Object.assign({}, state, payload);
     }
 
