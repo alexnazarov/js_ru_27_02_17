@@ -7,13 +7,7 @@ import './style.css'
 
 class ArticleList extends Component {
     render() {
-        const {articles, toggleOpenItem, isItemOpened, selectedItems} = this.props
-
-        // const filteredArticle = articles.filter(article => {
-        //     if(selectedItems[0]) {
-        //         return article.id !== selectedItems[0].value
-        //     }
-        // });
+        const {articles, toggleOpenItem, isItemOpened, filters} = this.props
 
         const articleComponents = articles.map(article => <li key={article.id}>
             <Article article={article}
@@ -39,7 +33,7 @@ class ArticleList extends Component {
 const mapStateToProps = state => {
     return {
         articles: state.articles,
-        selectedItems: state.selectedItems
+        filters: state.filters
     }
 }
 
@@ -48,5 +42,6 @@ export default connect(mapStateToProps)(accrdion(ArticleList))
 ArticleList.propTypes = {
     articles: PropTypes.array.isRequired,
     isItemOpened: PropTypes.func.isRequired,
-    toggleOpenItem: PropTypes.func.isRequired
+    toggleOpenItem: PropTypes.func.isRequired,
+    filters: PropTypes.object.isRequired
 }
