@@ -8,13 +8,31 @@ import './style.css'
 class ArticleList extends Component {
     render() {
         const {articles, toggleOpenItem, isItemOpened, filters} = this.props
+        const {date, filteredArticles} = filters
+        const {from, to} = date
+        const selectedArticlesId = filteredArticles.map(option => option.value)
 
-        const articleComponents = articles.map(article => <li key={article.id}>
-            <Article article={article}
-                     isOpen={isItemOpened(article.id)}
-                     toggleOpen={toggleOpenItem(article.id)}
-            />
-        </li>)
+        const filterArticle = (article) => {
+            const articleCreatedDate = new Date(article.date)
+
+            if (
+                selectedArticlesId.length && !selectedArticlesId.includes(article.id)
+                || from && from > articleCreatedDate
+                || to && to < articleCreatedDate) {
+                return false
+            }
+
+            return true
+        }
+
+        const articleComponents = articles
+                .filter(filterArticle)
+                .map(article => <li key={article.id}>
+                    <Article article={article}
+                            isOpen={isItemOpened(article.id)}
+                            toggleOpen={toggleOpenItem(article.id)}
+                    />
+                </li>)
 
         return (
             <CSSTransition component="ul"
