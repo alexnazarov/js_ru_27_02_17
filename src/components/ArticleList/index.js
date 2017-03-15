@@ -12,6 +12,7 @@ class ArticleList extends Component {
         const {from, to} = date
         const selectedArticlesId = filteredArticles.map(option => option.value)
 
+        //ок, но еще лучше делать фильтрацию в коннекте
         const filterArticle = (article) => {
             const articleCreatedDate = new Date(article.date)
 
