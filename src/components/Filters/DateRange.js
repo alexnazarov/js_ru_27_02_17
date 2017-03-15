@@ -6,19 +6,20 @@ import 'react-day-picker/lib/style.css'
 
 class DateRange extends Component {
     handleDayClick = (day) => {
-        console.log(DateUtils.addDayToRange(day))
-
-        //this.setState(DateUtils.addDayToRange(day, this.state))
+        const { date, filterArticlesByDate } = this.props;
+        const { from, to } = date;
+        filterArticlesByDate(DateUtils.addDayToRange(day, { from, to }))
     }
 
     render() {
         const { date } = this.props;
-        const selectedRange = date.from && date.to && `${date.from.toDateString()} - ${date.to.toDateString()}`
+        const { from, to } = date;
+        const selectedRange = from && to && `${from.toDateString()} - ${to.toDateString()}`
+
         return (
             <div className="date-range">
                 <DayPicker
-                    ref="daypicker"
-                    selectedDays={ day => DateUtils.isDayInRange(day, { from: date.from, to: date.to }) }
+                    selectedDays={ [from, { from, to }] }
                     onDayClick={ this.handleDayClick }
                 />
                 {selectedRange}
