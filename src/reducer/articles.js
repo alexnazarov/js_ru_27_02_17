@@ -11,6 +11,7 @@ export default (state = normalizedArticles, action) => {
             const index = state.findIndex(article => article.id === payload.articleId)
             const newState = state.slice()
 
+            //здесь ты мутируешь стейт. Возвращаешь новый массив, но внутри меняешь объекты по ссылке
             newState[index].comments.push(payload.id);
 
             return newState
