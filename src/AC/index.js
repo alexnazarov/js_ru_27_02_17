@@ -30,13 +30,12 @@ export function changeSelection(selected) {
     }
 }
 
-export function addComment(text, user, articleId) {
+export function addComment(commentData, articleId) {
     return {
         type: ADD_COMMENT,
         payload: {
-            text,
-            user,
-            articleId: '56c782f18990ecf954f6e027',
+            commentData,
+            articleId,
             id: null
         }
     }

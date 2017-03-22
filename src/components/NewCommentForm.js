@@ -22,21 +22,21 @@ class NewCommentForm extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault()
+        const { addComment, articleId } = this.props;
 
-        const { addComment } = this.props;
-        const { textValue, userValue } = this.refs;
+        addComment(this.state, articleId);
 
-        const text = textValue.value;
-        const user = userValue.value;
-
-        addComment(text, user);
+        this.setState({
+            user: '',
+            text: ''
+        })
     }
 
     render() {
         return (
             <form onSubmit = {this.handleSubmit}>
-                comment: <input ref="textValue" type="text" value={this.state.text} onChange = {this.handleChange('text')}/>
-                user: <input ref="userValue" type="text" value={this.state.user} onChange = {this.handleChange('user')}/>
+                comment: <input type="text" value={this.state.text} onChange = {this.handleChange('text')}/>
+                user: <input type="text" value={this.state.user} onChange = {this.handleChange('user')}/>
                 <input type = "submit"/>
             </form>
         )

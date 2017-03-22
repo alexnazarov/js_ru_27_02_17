@@ -6,7 +6,8 @@ export default (comments = normalizedComments, action) => {
 
     switch (type) {
         case ADD_COMMENT:
-            const {user, text, id} = payload;
+            const {commentData, id} = payload;
+            const {user, text} = commentData;
 
             return comments.concat({
                 user,
